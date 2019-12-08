@@ -187,6 +187,9 @@ code {
   padding: 1px 5px;
   color: #888;
 }
+b {
+  font-weight: bold;
+  }
 pre {
   display: block;
   padding: 13.333px 20px;
@@ -227,9 +230,6 @@ pre {
                   The source code for this application is available to be forked from the <a href="https://www.github.com/sclorg/django-ex">OpenShift GitHub repository</a>.
                   You can configure a webhook in your repository to make OpenShift automatically start a build whenever you push your code:
                 </p>
-b {
-  font-weight: bold;
-}
 <ol>
   <li>From the Web Console homepage, navigate to your project</li>
   <li>Click on Browse &gt; Builds</li>
@@ -240,6 +240,7 @@ b {
   <li>Paste your webhook URL provided by OpenShift</li>
   <li>Leave the defaults for the remaining fields &mdash; that's it!</li>
   <li><b><font color="red">That's it! my arse &mdash; Webhook showing: We couldn’t deliver this payload: Failure when receiving data from the peer</font></b></li>
+  <li>Luckily you can push up to the repo and run the Application Build manually</li>
 </ol>
 <p>After you save your webhook, if you refresh your settings page you can see the status of the ping that Github sent to OpenShift to verify it can reach the server.</p>
 <p>Note: adding a webhook requires your OpenShift server to be reachable from GitHub.</p>
