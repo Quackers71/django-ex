@@ -1,0 +1,30 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+   name: simple-webapp-docker
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'simple-webapp-docker:latest'
+  runPolicy: Serial
+  source:
+    git:
+      ref: master
+      uri: 'https://github.com/Quackers71/django-ex.git'
+    type: Git
+  strategy:
+    dockerStrategy:
+    type: Docker
+  triggers:
+    - imageChange:
+        lastTriggeredImageID: >-
+          172.30.1.1:5000/openshift/python@sha256:3403a88a4161c8b8029f4a7d520d4d6e95aeb179f5974b1d2a16b1cfb753cc25
+      type: ImageChange
+    - type: ConfigChange
+    - generic:
+        secret: 3969bbf7002898fb
+      type: Generic
+    - github:
+        secret: 4561832ab7836505
+      type: GitHub
